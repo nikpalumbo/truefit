@@ -1,0 +1,21 @@
+# Ignore Python cache and env
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Ignore virtual environments
+langchain-env/
+venv/
+.env
+
+# LangGraph runtime cache
+.langgraph_api/
+
+# VSCode project files
+.vscode/
+
+# MacOS system files
+.DS_Store
+
+# Python dotenv
+.env

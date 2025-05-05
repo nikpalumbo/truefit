@@ -1,0 +1,14 @@
+# Required dependencies for the TrueFit assistant
+langchain
+langgraph
+langchain-openai
+langchain-anthropic
+langchain-community
+pydantic>=2.0
+python-dotenv
+uuid
+trustcall
+
+# Optional tools for development
+pylint
+black

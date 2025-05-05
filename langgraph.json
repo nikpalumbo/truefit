@@ -1,0 +1,10 @@
+{
+    "project_name": "TrueFit Profile Builder",
+    "graphs": {
+      "profile_builder": "app:graph"
+    },
+    "dependencies": [
+      "langchain-openai",
+      "langchain-core"
+    ]
+  }
