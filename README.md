@@ -1,6 +1,18 @@
 # TrueFit
 
-**TrueFit** is a LangGraph-based assistant that helps generate and review tailored cover letters using extracted user and company data.
+**TrueFit** is an intelligent, LangGraph-based assistant designed to generate and review personalized cover letters by leveraging structured memory and Retrieval-Augmented Generation (RAG).
+
+Unlike standard LLMs, TrueFit combines multiple capabilities:
+
+- 🧠 **Long-term memory**: It stores and recalls user information such as values, interests, and resumes using TrustCall.
+- 🏢 **Company extraction**: It analyzes company data, extracting mission, values, and job details.
+- 🔎 **Tavily-powered RAG**: When values or mission are missing, it uses Tavily search to enrich context by pulling fresh web content.
+- ✍️ **Tailored generation**: Merges profile + company context to craft or evaluate cover letters.
+- 🔄 **Feedback loop**: It can revise and score a letter against the job description.
+- 🧾 **Dual LLM usage**: While GPT-4o powers extraction and generation, the review process uses Claude Sonnet for scoring and actionable feedback.
+- 🛠️ **Built with LangGraph + LangSmith**: The entire application is designed as a composable LangGraph, enabling traceable logic, live debugging, and rapid iteration. LangSmith integration offers observability and monitoring during development.
+
+This level of contextual personalization goes beyond typical LLM prompting. TrueFit acts as a dynamic agent with both memory and search to give you the best cover letter possible.
 
 ---
 
@@ -40,6 +52,7 @@ TAVILY_API_KEY=your-tavily-key
 
 ### 5. Run with LangGraph Dev
 ```bash
+pip install "langgraph-cli[inmem]"
 langgraph dev
 ```
 This will launch the graph in interactive development mode.
