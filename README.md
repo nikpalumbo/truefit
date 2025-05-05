@@ -46,6 +46,9 @@ Edit `.env` and set your API keys:
 OPENAI_API_KEY=your-openai-key
 ANTHROPIC_API_KEY=your-anthropic-key
 TAVILY_API_KEY=your-tavily-key
+LANGSMITH_API_KEY=your-langsmith-api-key
+LANGCHAIN_TRACING_V2="true"
+LANGCHAIN_PROJECT="truefit"
 ```
 
 > Make sure `.env` is in your `.gitignore` to avoid committing secrets.

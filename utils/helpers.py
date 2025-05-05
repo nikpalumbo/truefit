@@ -2,13 +2,17 @@
 Helper functions for routing and tool output formatting.
 """
 
-from typing import Literal
+from typing import Literal, Dict, Any
 from langgraph.graph import END
 
 
-def route_message(state, config, store) -> Literal[END, "update_profile", "update_company", "fetch_company_info", "review_cover_letter"]:
+def route_message(state: Dict[str, Any]) -> Literal[END, "update_profile", "update_company", "fetch_company_info", "review_cover_letter"]:
     """
     Routes execution to the correct node based on the latest tool call in the state.
+    
+    Note: This function only needs the state parameter for conditional edge routing.
+    The config and store parameters should not be declared here to avoid the
+    'Missing required config key' error.
     """
     message = state['messages'][-1]
     if not message.tool_calls:
@@ -20,8 +24,16 @@ def route_message(state, config, store) -> Literal[END, "update_profile", "updat
     # Map update type to the corresponding node label
     if update_type == "user":
         return "update_profile"
-    if update_type == "company":
-        return
+    elif update_type == "company":
+        return "update_company"
+    elif update_type == "company_info":
+        return "fetch_company_info"
+    elif update_type == "review":
+        return "review_cover_letter"
+    else:
+        # Default case to handle any unexpected values
+        return END
+
 
 def extract_tool_info(tool_calls, schema_name="Memory"):
     """
