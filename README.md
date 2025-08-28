@@ -2,6 +2,8 @@
 
 **TrueFit** is an intelligent, LangGraph-based assistant designed to generate and review personalized cover letters by leveraging structured memory and Retrieval-Augmented Generation (RAG).
 
+**Business Case:** https://sdw.solutions/case-studies/ai-agent-truefit
+
 Unlike standard LLMs, TrueFit combines multiple capabilities:
 
 - 🧠 **Long-term memory**: It stores and recalls user information such as values, interests, and resumes using TrustCall.
